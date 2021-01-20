@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>userView</title>
+</head>
+<body>
+    <h1>Show users</h1>
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>LAST_NAME</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            <tr th:each="user:${users}">
+                <td th:text="${user.getId()}"></td>
+                <td th:text="${user.getFirstName()}"></td>
+                <td th:text="${user.getLastName()}"></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td th:text="${user.getPhone()}"></td>
+                <td><a th:href="@{/view/user/delete/{id}(id = ${user.getId()})}">DELETE</a></td>
+                <td><a th:href="@{/view/user/form/update/{id}(id = ${user.getId()})}">UPDATE</a></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <p>Find USER by ID</p>
+        <form action="/view/user/id"  method="post">
+            <p>Id: <input type="text" name="id" pattern="^[0-9]+$"/></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </div>
+    <div>
+        <p><a th:href="@{/view/user/form/create/0}">Create new USER</a>></p>
+    </div>
+</body>
+</html>
