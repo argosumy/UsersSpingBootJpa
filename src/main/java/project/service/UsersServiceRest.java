@@ -37,10 +37,7 @@ public class UsersServiceRest implements UsersService {
     @Override
     @Transactional
     public User createUser(User user){
-        user.setFirstName("Ivan-Chai");
-        user.setLastName("Lozinskiy");
-        user.setPhone("0994869938");
-        usersRepository.save(user);
+
         return user;
     }
 

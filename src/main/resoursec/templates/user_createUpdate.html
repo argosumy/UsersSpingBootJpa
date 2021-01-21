@@ -11,9 +11,13 @@
         <form action="#" th:action="@{/view/user/{action}(action = ${action})}" th:object="${user}"  method="post">
             <p th:if="${action} == 'update'">ID:<input readonly type="number" th:name="id" th:value="*{id}"></p>
             <p>First name: <input id="firstName" type="text" th:field="*{firstName}" /></p>
+            <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name error</p>
             <p>Last name: <input id="lastName"  type="text" th:field="*{lastName}" pattern="^[A-Z]+[a-z]+$"/></p>
+            <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name error</p>
             <p>email: <input type="text" th:field="*{email}" /></p>
+            <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name error</p>
             <p>phone: <input type="number" th:field="*{phone}" pattern="^[0-9]+$"/></p>
+            <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name error</p>
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
         </form>
     </div>
