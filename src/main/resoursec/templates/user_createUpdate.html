@@ -16,7 +16,7 @@
             <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name error</p>
             <p>email: <input type="text" th:field="*{email}" /></p>
             <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name error</p>
-            <p>phone: <input type="number" th:field="*{phone}" pattern="^[0-9]+$"/></p>
+            <p>phone: <input type="number" th:field="*{phone}" pattern="^[0-9]+$" /></p>
             <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name error</p>
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
         </form>

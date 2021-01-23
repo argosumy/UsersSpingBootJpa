@@ -29,6 +29,7 @@ public class UsersServiceView implements UsersService  {
 
     @Override
     public List<User> getUserByPhone(String phone) {
+
         return usersRepository.findByPhone(phone);
     }
 

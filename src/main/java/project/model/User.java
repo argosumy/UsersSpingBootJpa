@@ -1,12 +1,18 @@
 package project.model;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import project.model.user_validator.PhoneValid;
+import project.service.UsersServiceView;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Data
 @Entity
 @Table(name="test_customers")
+
 public class User {
 
     public User() {
@@ -30,7 +36,7 @@ public class User {
     private String email;
 
     @Column()
-    @Min(value = 0,message = "Number")
+    @PhoneValid(value = "^38[0-9]{10}$")
     private String phone;
 
 }
